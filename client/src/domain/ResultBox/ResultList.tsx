@@ -1,7 +1,7 @@
-import React, { HTMLProps, useState, MouseEvent } from 'react';
+import React, { HTMLProps, MouseEvent } from 'react';
 import './ResultList.css';
 import WordHighlight from '../../components/WordHighlight/WordHighlight';
-import { useHistory, withRouter, RouteComponentProps } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 export interface ListProps {
   title: string;
@@ -20,9 +20,6 @@ const ResultList = ({
   className = '',
   dataList,
   searchKey,
-  // history,
-  // location,
-  // match,
   onClose,
 }: ResultListProps) => {
   const history = useHistory();

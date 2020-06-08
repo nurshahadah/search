@@ -6,7 +6,7 @@ let CancelToken = axios.CancelToken;
 let cancel: any;
 
 export async function getSearchResults(value: string) {
-  if (cancel != undefined) {
+  if (cancel !== undefined) {
     cancel('Abort request');
   }
 

@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, useEffect, useMemo } from 'react';
+import React, { useState, ChangeEvent } from 'react';
 import TextInput from '../../components/FormElements/TextInputBox/TextInputBox';
 import './SearchBox.css';
 import { useDebouncedCallback } from 'use-debounce';

@@ -1,4 +1,4 @@
-import React, { HTMLProps, Fragment } from 'react';
+import React, { HTMLProps } from 'react';
 import './WordHighlight.css';
 
 export interface WordHighlightProps extends HTMLProps<HTMLSpanElement> {
