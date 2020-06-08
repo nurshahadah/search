@@ -2,6 +2,27 @@
 
 **Frontend: http://localhost:3000/**
 
+## Running backend
+
+cd into folder: server
+
+```
+cd server
+```
+
+install dependencies
+
+```
+npm install
+```
+
+start
+
+```
+npm run server
+
+```
+
 ## Running frontend
 
 cd into folder: client
@@ -26,26 +47,4 @@ view website
 
 ```
 http://localhost:3000/
-```
-
-## Running backend
-
-cd into folder: server
-
-```
-cd server
-```
-
-install dependencies
-
-```
-npm install
-```
-
-start
-
-```
-
-npm run server
-
 ```
