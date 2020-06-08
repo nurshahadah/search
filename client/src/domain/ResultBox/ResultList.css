@@ -1,0 +1,16 @@
+.list-item:nth-child(2) {
+  padding-top: 1em;
+}
+.list-item {
+  padding: 1.2em 1.4em;
+  cursor: pointer;
+}
+
+.list-item:hover {
+  background-color: #e3e3e3;
+}
+
+.list-item p {
+  margin-top: 0;
+  margin-bottom: 0.3em;
+}

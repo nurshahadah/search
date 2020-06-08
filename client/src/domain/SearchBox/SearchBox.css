@@ -1,0 +1,13 @@
+#search-box {
+  padding-top: 2em;
+  width: 50%;
+  margin: auto;
+  position: relative;
+}
+
+#search-box > .result-container {
+  position: absolute;
+  width: 100%;
+  box-shadow: 1px 4px 9px -5px rgba(0, 0, 0, 0.75);
+  background: white;
+}
