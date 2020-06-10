@@ -1,9 +1,11 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { mount, shallow } from 'enzyme';
 import App from './App';
+import SearchBox from './domain/SearchBox/SearchBox';
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe('should render without crashing', () => {
+  it('should display searchbox', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.find(SearchBox)).toHaveLength(1);
+  });
 });

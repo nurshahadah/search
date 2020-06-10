@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from 'react';
+import React, { useState, ChangeEvent, MouseEvent } from 'react';
 import TextInput from '../../components/FormElements/TextInputBox/TextInputBox';
 import './SearchBox.css';
 import { useDebouncedCallback } from 'use-debounce';
@@ -20,19 +20,23 @@ const SearchBox = () => {
     if (value === '') {
       return;
     }
+
     setTyping(true);
     setResult([]);
+
     getSearchResults(value)
       .then((response) => {
         setResult(response);
         setTyping(false);
       })
-      .catch((error) => console.log('error', error));
+      .catch((error) => {
+        console.log(error);
+      });
   }, 500);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setValue(event.currentTarget.value);
-    debouncedFunction(event.currentTarget.value);
+    setValue(event.target.value);
+    debouncedFunction(event.target.value);
   };
 
   const displayResultBox = () => {

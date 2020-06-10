@@ -23,6 +23,18 @@ npm run server
 
 ```
 
+test
+
+```
+npm run test
+```
+
+test coverage
+
+```
+npm run test:coverage
+```
+
 ## Running frontend
 
 cd into folder: client
@@ -41,6 +53,18 @@ start
 
 ```
 npm run start
+```
+
+test
+
+```
+npm run test
+```
+
+test coverage
+
+```
+test run test:coverage
 ```
 
 view website

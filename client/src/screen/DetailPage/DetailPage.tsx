@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { withRouter, RouteComponentProps } from 'react-router';
+import { useParams } from 'react-router';
 import { SearchResultType } from '../../domain/SearchBox/SearchBox';
 import './DetailPage.css';
 import { statusCode } from './constants';
 import { fetch } from '../../services/fetch';
 import { API } from '../../services/config';
 
-type TParams = { id: string };
 export interface DetailResultType extends SearchResultType {
   type: string;
   category: string;
@@ -15,26 +14,30 @@ export interface DetailResultType extends SearchResultType {
   dateTime: string;
 }
 
-const DetailPage = ({
-  history,
-  match: {
-    params: { id },
-  },
-}: RouteComponentProps<TParams>) => {
+const DetailPage = () => {
   const [data, setData] = useState<DetailResultType>();
   const [loading, setLoading] = useState<boolean>(true);
+  const { id } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      const dataRequest = await fetch({ url: `${API.DETAIL_PAGE}/${id}` });
-      return dataRequest;
+      try {
+        const dataRequest = await fetch({ url: `${API.DETAIL_PAGE}/${id}` });
+        return dataRequest;
+      } catch (e) {
+        throw e;
+      }
     };
 
-    fetchData().then((response) => {
-      setData(response);
-      setLoading(false);
-    });
+    fetchData()
+      .then((response) => {
+        setData(response);
+        setLoading(false);
+      })
+      .catch((error) => {
+        throw error;
+      });
   }, [id]);
 
   const getStatusColor = (status: string): string => {
@@ -87,4 +90,4 @@ const DetailPage = ({
   return <div className='details-wrapper'>{renderDetails()}</div>;
 };
 
-export default withRouter(DetailPage);
+export default DetailPage;

@@ -2,7 +2,7 @@ import { fetch } from './fetch';
 import axios from 'axios';
 import { API } from './config';
 
-let CancelToken = axios.CancelToken;
+const CancelToken = axios.CancelToken;
 let cancel: any;
 
 export async function getSearchResults(value: string) {
@@ -10,15 +10,21 @@ export async function getSearchResults(value: string) {
     cancel('Abort request');
   }
 
-  return fetch({
-    url: `${API.SEARCH}`,
-    options: {
-      cancelToken: new CancelToken(function executor(c) {
-        cancel = c;
-      }),
-      headers: {
-        searchKey: value,
-      },
-    },
+  const cancelToken = new CancelToken(function executor(c) {
+    cancel = c;
   });
+
+  try {
+    return await fetch({
+      url: `${API.SEARCH}`,
+      options: {
+        cancelToken,
+        headers: {
+          searchKey: value,
+        },
+      },
+    });
+  } catch (e) {
+    throw e;
+  }
 }

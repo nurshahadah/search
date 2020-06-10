@@ -5,7 +5,10 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "test:watch": "nodemon --exec 'mocha __test__/**/*.js'",
+    "test": "mocha __test__/**/*.js --exit",
+    "test:coverage": "nyc --reporter=text npm run test"
   },
   "author": "nur",
   "license": "MIT",
@@ -14,6 +17,10 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "chai": "^4.2.0",
+    "mocha": "^7.2.0",
+    "nodemon": "^2.0.4",
+    "nyc": "^15.1.0",
+    "supertest": "^4.0.2"
   }
 }
